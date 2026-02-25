@@ -29,28 +29,28 @@ const Slider = ({ width = '100%' }) => {
       onMouseLeave={handleMouseLeave}
     >
       {/* Responsive height using Tailwind classes */}
-      <div className="w-full h-[30vh] sm:h-[30vh] md:h-[60vh] lg:h-[70vh]">
+      <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.img
             key={current}
             src={slides[current]}
             alt="POS Banner"
             className="w-full h-full object-cover rounded-xl"
-            initial={{ scale: 0.9, y: 20, opacity: 0 }}
-            animate={{ scale: 1, y: 0, opacity: 1 }}
-            exit={{ scale: 0.9, y: -20, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           />
         </AnimatePresence>
       </div>
 
       {/* Dots */}
-      <div className="absolute bottom-2 sm:bottom-4 md:bottom-5 lg:bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 sm:space-x-3">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 sm:space-x-3">
         {slides.map((_, index) => (
           <div
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full border border-greyColor cursor-pointer transition-all ${
+            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full border border-greyColor cursor-pointer transition-all ${
               current === index ? "bg-primary scale-125" : "bg-primary/60"
             }`}
           />
