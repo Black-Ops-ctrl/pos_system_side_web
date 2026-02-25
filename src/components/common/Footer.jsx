@@ -3,19 +3,19 @@ import { Instagram, Twitter, Facebook } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-secondary text-white mt-8">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Mobile: Stacked Layout */}
-        <div className="flex flex-col sm:grid sm:grid-cols-3 md:grid-cols-5 gap-6">
+      <div className="w-full px-4 py-8">
+        {/* Mobile: Stacked Layout, Desktop: Centered Grid */}
+        <div className="flex flex-col md:grid md:grid-cols-5 md:max-w-4xl lg:max-w-6xl md:mx-auto gap-6">
           {/* Brand */}
-          <div className="text-center sm:text-left">
+          <div className="text-center md:text-left">
             <h2 className="text-xl font-bold text-primary mb-2">POS</h2>
-            <p className="text-primary/70 text-sm max-w-[250px] mx-auto sm:mx-0">
+            <p className="text-primary/70 text-sm max-w-[250px] mx-auto md:mx-0">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
 
           {/* Main Links */}
-          <div className="text-center sm:text-left">
+          <div className="text-center md:text-left">
             <h3 className="text-base font-semibold text-primary mb-2">Main</h3>
             {["Home", "About Us", "Portfolio", "Services", "Contact"].map((item) => (
               <a key={item} href="#" className="block text-primary/70 text-sm mb-2 hover:text-greenColor">
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div className="text-center sm:text-left">
+          <div className="text-center md:text-left">
             <h3 className="text-base font-semibold text-primary mb-2">Company</h3>
             {["Clients", "Team", "Career", "Testimonials", "Journal"].map((item) => (
               <a key={item} href="#" className="block text-primary/70 text-sm mb-2 hover:text-greenColor">
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Legal Links */}
-          <div className="text-center sm:text-left">
+          <div className="text-center md:text-left">
             <h3 className="text-base font-semibold text-primary mb-2">Legal</h3>
             {["Privacy Policy", "Terms & Conditions", "Partners"].map((item) => (
               <a key={item} href="#" className="block text-primary/70 text-sm mb-2 hover:text-greenColor">
@@ -45,9 +45,9 @@ const Footer = () => {
           </div>
 
           {/* Social & CTA */}
-          <div className="text-center sm:text-left">
+          <div className="text-center md:text-left">
             <h3 className="text-base font-semibold text-primary mb-2">Connect</h3>
-            <div className="flex justify-center sm:justify-start gap-4 mb-3">
+            <div className="flex justify-center md:justify-start gap-4 mb-3">
               {[Instagram, Twitter, Facebook].map((Icon, i) => (
                 <a key={i} href="#" className="text-primary/70 hover:text-greenColor">
                   <Icon size={18} />
@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-greyColor/20 mt-8 pt-6 text-center">
+        <div className="border-t border-greyColor/20 mt-8 pt-6 text-center max-w-4xl lg:max-w-6xl mx-auto">
           <p className="text-greyColor/60 text-sm">
             © 2019-2020 All Rights Reserved.
           </p>
