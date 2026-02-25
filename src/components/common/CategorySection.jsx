@@ -13,6 +13,7 @@ const categories = [
 const CategorySection = () => {
   const [showAll, setShowAll] = useState(false);
   
+  // Mobile par 2 categories initially, desktop par 5
   const categoriesToDisplay = showAll 
     ? categories 
     : categories.slice(0, window.innerWidth < 768 ? 2 : 5);
@@ -23,7 +24,8 @@ const CategorySection = () => {
         Explore Categories
       </h2>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-3 md:gap-4">
+      {/* Mobile: 1 column, Desktop: multiple columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-3 md:gap-4">
         {categoriesToDisplay.map((category) => (
           <div
             key={category.id}
@@ -32,17 +34,17 @@ const CategorySection = () => {
             <img
               src={category.imageUrl}
               alt={category.name}
-              className="w-full h-36 sm:h-40 md:h-44 lg:h-48 object-cover rounded-xl"
+              className="w-full h-48 sm:h-40 md:h-44 lg:h-48 object-cover rounded-xl"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-3 md:p-4 text-primary">
-              <h3 className="text-base sm:text-base md:text-lg font-semibold">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 sm:p-3 md:p-4 text-primary">
+              <h3 className="text-lg sm:text-base md:text-lg font-semibold">
                 {category.name}
               </h3>
-              <p className="text-sm sm:text-sm">
+              <p className="text-base sm:text-sm">
                 {category.products} Products
               </p>
             </div>
-            <button className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-secondary text-white py-1.5 sm:py-1.5 px-3 sm:px-3 rounded-lg text-sm sm:text-sm shadow-md hover:bg-opacity-80 transition-all">
+            <button className="absolute bottom-3 right-3 sm:bottom-3 sm:right-3 bg-secondary text-white py-2 sm:py-1.5 px-4 sm:px-3 rounded-lg text-base sm:text-sm shadow-md hover:bg-opacity-80 transition-all">
               Open
             </button>
           </div>
@@ -64,5 +66,3 @@ const CategorySection = () => {
 };
 
 export default CategorySection;
-
-
