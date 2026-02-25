@@ -13,7 +13,6 @@ const categories = [
 const CategorySection = () => {
   const [showAll, setShowAll] = useState(false);
   
-  // Mobile par sirf 2 categories dikhao, desktop par 5
   const categoriesToDisplay = showAll 
     ? categories 
     : categories.slice(0, window.innerWidth < 768 ? 2 : 5);
@@ -65,3 +64,6 @@ const CategorySection = () => {
 };
 
 export default CategorySection;
+
+
+

@@ -29,7 +29,7 @@ const Slider = ({ width = '100%' }) => {
       onMouseLeave={handleMouseLeave}
     >
       {/* Responsive height using Tailwind classes */}
-      <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
+      <div className="w-full h-[10vh] sm:h-[20vh] md:h-[60vh] lg:h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.img
             key={current}
