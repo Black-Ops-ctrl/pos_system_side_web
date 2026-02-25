@@ -1,0 +1,61 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import bannerOne from "../../assets/png/img_banner_one.webp";
+import bannerTwo from "../../assets/png/img_banner_two.webp";
+
+const slides = [bannerOne, bannerTwo];
+
+const Slider = ({ width = '100%' }) => {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!paused) {
+      const interval = setInterval(() => {
+        setCurrent((prev) => (prev + 1) % slides.length);
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [paused]);
+
+  const handleMouseEnter = () => setPaused(true);
+  const handleMouseLeave = () => setPaused(false);
+
+  return (
+    <div
+      className="relative w-full overflow-hidden mt-4 sm:mt-8 md:mt-10 lg:mt-12 block"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ width, height: '60vh' }}
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={current}
+          src={slides[current]}
+          alt="POS Banner"
+          className="absolute w-full h-full object-contain"
+          initial={{ scale: 0.9, y: 20, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          exit={{ scale: 0.9, y: -20, opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        />
+      </AnimatePresence>
+
+      {/* Dots */}
+      <div className="absolute bottom-3 sm:bottom-2 md:bottom-4 lg:bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 sm:space-x-3">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-2 h-2 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full border border-greyColor cursor-pointer transition-all ${
+              current === index ? "bg-primary scale-125" : "bg-primary/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Slider;

@@ -1,15 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-//import HomePage from '../pages/HomePage';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "../../pages/HomePage";
 
 const AppRouter = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      {/* <Route path="/inventory" element={<Inventory />} /> */}
+    </Routes>
   );
 };
 
