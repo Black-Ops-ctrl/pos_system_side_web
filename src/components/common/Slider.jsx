@@ -29,13 +29,13 @@ const Slider = ({ width = '100%' }) => {
       onMouseLeave={handleMouseLeave}
     >
       {/* Responsive height with proper image fit */}
-      <div className="w-full h-[20vh] sm:h-[20vh] md:h-[60vh] lg:h-[70vh]">
+      <div className="w-full h-[30vh] sm:h-[40vh] md:h-[60vh] lg:h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.img
             key={current}
             src={slides[current]}
             alt="POS Banner"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rounded-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
