@@ -28,14 +28,14 @@ const Slider = ({ width = '100%' }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Responsive height using Tailwind classes */}
-      <div className="w-full h-[30vh] sm:h-[30vh] md:h-[60vh] lg:h-[70vh]">
+      {/* Responsive height with proper image fit */}
+      <div className="w-full h-[30vh] sm:h-[40vh] md:h-[60vh] lg:h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.img
             key={current}
             src={slides[current]}
             alt="POS Banner"
-            className="w-full h-full object-cover rounded-xl"
+            className="w-full h-full object-contain sm:object-cover rounded-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
