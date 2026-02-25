@@ -6,18 +6,18 @@ import Footer from "../components/common/Footer";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-primary w-full mx-auto">
+    <div className="min-h-screen bg-primary w-full mx-auto overflow-x-hidden">
       {/* Navbar Container */}
-      <div className="px-4 sm:px-8 md:px-12 lg:px-16 w-full">
+      <div className="px-4 sm:px-8 md:px-12 w-full">
         <Navbar />
       </div>
       
       {/* Main Content Container */}
-      <div className="px-4 sm:px-8 md:px-12 lg:px-16">
+      <div className="px-4 sm:px-8 md:px-12">
         <Slider />
         <CategorySection />
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };
